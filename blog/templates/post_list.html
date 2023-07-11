@@ -1,0 +1,6 @@
+<h1>Blog</h1>
+
+
+{% for post in posts %}
+    <h3><a href="/blog/{{post.id}}">{{post}}</a></h3>
+    {% endfor %}

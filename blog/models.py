@@ -2,6 +2,10 @@ from django.db import models
 
 from django.utils import timezone
 
+from taggit.managers import TaggableManager
+
+from django.contrib.auth.models import User
+
 
 '''
     features
@@ -17,3 +21,7 @@ class Post(models.Model):
     create_date = models.DateTimeField(default=timezone.now)
     
     draft = models.BooleanField(default=True)
+
+    tags = TaggableManager()
+    
+    author = models.ForeignKey(User, related_name='post_user', null=True, on_delete=models.SET_NULL)

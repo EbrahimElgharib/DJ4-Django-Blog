@@ -25,3 +25,8 @@ class Post(models.Model):
     tags = TaggableManager()
     
     author = models.ForeignKey(User, related_name='post_user', null=True, on_delete=models.SET_NULL)
+    
+    image = models.ImageField(upload_to='posts')
+    
+    def __str__(self):
+        return self.title

@@ -18,13 +18,12 @@ class PostAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
     search_fields = ['title']
     
 
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(SummernoteModelAdmin):
+    summernote_fields = ('comment',)
+    
     list_display = ['user', 'post', 'create_date']
     
     
-
-
-
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)    

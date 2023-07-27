@@ -60,7 +60,7 @@ def post_detail(request, pk):
         
 #     return render(request, 'new_post.html', context={'form':form})
 
-class PostCreate(UpdateView):
+class PostCreate(CreateView):
     model = Post
     
     fields = ['title', 'content', 'image', 'tags', 'create_date', 'draft', 'author']

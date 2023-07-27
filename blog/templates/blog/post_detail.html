@@ -5,7 +5,7 @@
 <h3>{{post}}</h3>
 
 
-<h3>{{post.content}}</h3>
+<h3>{{post.content | safe}}</h3>
 <h3>{{post.create_date}}</h3>
 <h3>{{post.draft}}</h3>
 
@@ -15,4 +15,23 @@
 
 <h3>{{post.author}}</h3>
 
-<img src="{{post.image.url}}" alt="">
+<img src="{{post.image.url}}" alt="" width="200px">
+<hr>
+<hr>
+<h2>Comments</h2>
+<hr>
+<ul>
+    {% for comment in comments %}
+    <li>
+        <h5>{{comment.user}} ----- {{comment.create_date}} ----- {{comment.comment}} </h5>
+    </li>
+    {% endfor %}
+</ul>
+<hr>
+<h3>Add comment</h3>
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Add comment">
+</form>

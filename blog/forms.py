@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Post
+from .models import Post, Comment
 
 
 class PostForm(forms.ModelForm): 
@@ -16,4 +16,10 @@ class PostForm(forms.ModelForm):
         
         # Hind : that is a tuble ('test' , )
         exclude = ('author', ) # all except author
+    
+
+class CommentForm(forms.ModelForm): 
+    class Meta:
+        model = Comment
         
+        fields = ['comment']  # specific fields
